@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Counter Components Demo</title>
+    <h1 style="margin-bottom: 0; color: rgb(80, 80, 80);">Counter Demo</h1>
+    <h2 style="margin-top: 0; color: rgb(111, 111, 111);">by Pratama Nanindra Aji</h2>
+    
+    <script src="counter-display.js"></script>
+    <script src="counter-controls.js"></script>
+    <script src="combined-counter.js"></script>
+    
+    <script src="counter-display-b.js"></script>
+    <script src="counter-controls-b.js"></script>
+    <script src="combined-counter-b.js"></script>
+    
+</head>
+<body>
+<div style="display: flex; gap: 64px; margin-top: 32px;">
+    <div class="komponen">
+        <!-- Komponen 1 -->
+        <h3>Komponen 1A</h3>
+        <counter-display id="display" title="Testing" value="99"></counter-display>
+        
+        <!-- Komponen 2 -->
+        <h3>Komponen 2A</h3>
+        <counter-controls id="controls"  target="display"></counter-controls>
+        
+        <script>
+            const display = document.getElementById('display');
+            const controls = document.getElementById('controls');
+            
+            controls.addEventListener('count-change', e => {
+                display.count += e.detail.delta;
+            });
+            </script>
+    
+        <!-- Komponen 3 -->
+        <h3>Komponen gabungan 1A dan 2A</h3>
+        <combined-counter title="Counter" value="99"></combined-counter>
+    </div>
+
+    <div class="komponen">
+        <!-- Varian B -->
+        <h3>Komponen 1B</h3>
+        <counter-display-b id="displayB" title="Counter B" value="0"></counter-display-b>
+        
+        <h3>Komponen 2B</h3>
+        <counter-controls-b target="displayB"></counter-controls-b>
+        
+        <h3>Komponen gabungan B</h3>
+        <combined-counter-b title="Counter B" value=""></combined-counter-b>
+    </div>
+</div>
+</body>
+<link rel="stylesheet" href="index.css">
+</html>
